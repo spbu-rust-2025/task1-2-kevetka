@@ -25,7 +25,7 @@ fn main() {
                 }
             },
             Err(_) => {
-                println!("Nan");
+                println!("NaN");
                 return;
             }
         }
