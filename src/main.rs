@@ -2,6 +2,7 @@ use std::io;
 
 fn main() {
     let mut summa = 0;
+    let mut false_flag = false;
 
     loop {
         let mut input = String::new();
@@ -14,21 +15,23 @@ fn main() {
                     }
                     if num > 0 {
                         summa += num;
-                    } else {
-                        println!("NaN");
-                        return;
+                    }
+                    else {
+                        false_flag = true;
                     }
                 }
                 Err(_) => {
-                    println!("NaN");
-                    return;
+                    false_flag = true;
                 }
             },
             Err(_) => {
-                println!("NaN");
-                return;
+                false_flag = true;
             }
         }
+    }
+    if false_flag {
+        println!("NaN");
+        return;
     }
     println!("{}", summa);
 }
